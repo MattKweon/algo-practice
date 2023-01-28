@@ -82,7 +82,7 @@ Open brackets must be closed by the same type of brackets.
 Open brackets must be closed in the correct order.
 Every close bracket has a corresponding open bracket of the same type.
 
-// Pseudocode:
+// pseudocode:
 [x] define a `pairs` map that has a the opening bracket as a key and the closing
    as the value
 [x] if length of string is odd return false
@@ -116,4 +116,34 @@ function isValid(s) {
     }
   }
   return stack.length === 0;
+}
+
+/*
+// Remove Duplicate from Sorted Array
+//
+// pseudocode:
+[x] create an output variable and assign a value of one
+[x] create a variable for the length of input array
+[x] loop through the input array and start the second position
+[] if the value at index 'i' is the same as the previous number:
+   [] remove the number from the input array
+   [] push the number to the end of the array
+   [] decrement index 'i'
+   [] decrement the value of the input length by 1
+[] if not increment the value of output and go to the next increment
+*/
+function removeDuplicates(nums) {
+  let output = 1;
+  let inputLen = nums.length;
+
+  for (let i = 1; i < inputLen; i++) {
+    if (nums[i] !== nums[i - 1]) {
+      output++;
+    } else {
+      nums.push(nums.splice(i, 1)[0]);
+      i--;
+      inputLen--;
+    }
+  }
+  return output;
 }
