@@ -3,9 +3,12 @@
 // Algorithm Practice
 //
 
+/*
 // Palindrome Number
-// Given an integer x, return true if x is a palindrome,
-// and false otherwise.
+//
+Given an integer x, return true if x is a palindrome,
+and false otherwise.
+*/
 function palindromeNum(x) {
   x = x.toString();
   let k = x.length;
@@ -18,8 +21,11 @@ function palindromeNum(x) {
   return true;
 }
 
+/*
 // Roman to Integer
-// Given a roman numeral, convert it to an integer.
+//
+Given a roman numeral, convert it to an integer.
+*/
 function romanToInt(s) {
   const sym = {
     I: 1,
@@ -47,10 +53,13 @@ function romanToInt(s) {
   return result;
 }
 
+/*
 // Longest Common Prefix
-// Write a function to find the longest common prefix string amongst
-// an array of strings.
-// If there is no common prefix, return an empty string "".
+//
+Write a function to find the longest common prefix string amongst
+an array of strings.
+If there is no common prefix, return an empty string "".
+*/
 function longestCommonPrefix(strs) {
   if (!strs.length) return '';
 
@@ -60,4 +69,27 @@ function longestCommonPrefix(strs) {
     }
   }
   return strs[0];
+}
+
+/*
+// Valid Parentheses
+//
+Given a string s containing just the characters '(', ')', '{',
+'}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Every close bracket has a corresponding open bracket of the same type.
+
+// Pseudocode:
+[] return false if string starts with ')' or ']' or '}'
+[] loop a through the string and determine if it starts with '(' or '[' or '{'
+[] the next character must be a closing bracket of the same kind
+[] if not return false
+[] if so move on to the next chacter
+[] if all tests pass return true
+*/
+function isValid(s) {
+  if (s[0] === ')' || s[0] === ']' || s[0] === '}') return false;
 }
