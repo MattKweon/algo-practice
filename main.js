@@ -83,15 +83,37 @@ Open brackets must be closed in the correct order.
 Every close bracket has a corresponding open bracket of the same type.
 
 // Pseudocode:
-[] define a `pairs` map that has a the opening bracket as a key and the closing
+[x] define a `pairs` map that has a the opening bracket as a key and the closing
    as the value
-[] if length of string is odd return false
-[] if first character is a closing tag return false
-[] if the last bracket is opening return false
-[] loop through the string:
-   [] if bracket is opening push it on top of the stack
-   [] if bracket is closing, check to if the top stack is a matching opening
+[x] if length of string is odd return false
+[x] if first character is a closing tag return false
+[x] if the last bracket is opening return false
+[x] loop through the string:
+   [x] if bracket is opening push it on top of the stack
+   [x] if bracket is closing, check to if the top stack is a matching opening
       bracket:
-      [] if no match is found return false
-   [] if stack is empty, the string is valid, return true
+      [x] if no match is found return false
+   [x] if stack is empty, the string is valid, return true
 */
+function isValid(s) {
+  const pairs = {
+    '(': ')',
+    '[': ']',
+    '{': '}'
+  };
+
+  if (s.length % 2 === 1) return false;
+  if (s[0] === ')' || s[0] === ']' || s[0] === '}') return false;
+  if (s[s.length - 1] === '(' || s[s.length - 1] === '(' || s[s.length - 1] === '{') return false;
+
+  const stack = [];
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '(' || s[i] === '[' || s[i] === '{') {
+      stack.push(s[i]);
+    } else if (pairs[stack.pop()] !== s[i]) {
+      return false;
+    }
+  }
+  return stack.length === 0;
+}
