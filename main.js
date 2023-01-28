@@ -83,13 +83,15 @@ Open brackets must be closed in the correct order.
 Every close bracket has a corresponding open bracket of the same type.
 
 // Pseudocode:
-[] return false if string starts with ')' or ']' or '}'
-[] loop a through the string and determine if it starts with '(' or '[' or '{'
-[] the next character must be a closing bracket of the same kind
-[] if not return false
-[] if so move on to the next chacter
-[] if all tests pass return true
+[] define a `pairs` map that has a the opening bracket as a key and the closing
+   as the value
+[] if length of string is odd return false
+[] if first character is a closing tag return false
+[] if the last bracket is opening return false
+[] loop through the string:
+   [] if bracket is opening push it on top of the stack
+   [] if bracket is closing, check to if the top stack is a matching opening
+      bracket:
+      [] if no match is found return false
+   [] if stack is empty, the string is valid, return true
 */
-function isValid(s) {
-  if (s[0] === ')' || s[0] === ']' || s[0] === '}') return false;
-}
