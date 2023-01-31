@@ -125,12 +125,12 @@ function isValid(s) {
 [x] create an output variable and assign a value of one
 [x] create a variable for the length of input array
 [x] loop through the input array and start the second position
-[] if the value at index 'i' is the same as the previous number:
-   [] remove the number from the input array
-   [] push the number to the end of the array
-   [] decrement index 'i'
-   [] decrement the value of the input length by 1
-[] if not increment the value of output and go to the next increment
+[x] if the value at index 'i' is the same as the previous number:
+   [x] remove the number from the input array
+   [x] push the number to the end of the array
+   [x] decrement index 'i'
+   [x] decrement the value of the input length by 1
+[x] if not increment the value of output and go to the next increment
 */
 function removeDuplicates(nums) {
   let output = 1;
@@ -146,4 +146,30 @@ function removeDuplicates(nums) {
     }
   }
   return output;
+}
+
+/*
+// Search Insert Position
+//
+//pseudocode:
+[x] if the input array has the target value, return the index
+[x] if not lopp through the input array
+[x] check if the target value is less than or equal to the value at index 'i'
+[x] if its more go next
+[x] if its less return the value of index 'i'
+*/
+function searchInsert(nums, target) {
+  if (nums.indexOf(target) > 0) {
+    return nums.indexOf(target);
+  } else {
+    if (target > nums[nums.length - 1]) {
+      return nums.length;
+    } else {
+      for (let i = 0; i < nums.length; i++) {
+        if (nums[i] > target) {
+          return i;
+        }
+      }
+    }
+  }
 }
