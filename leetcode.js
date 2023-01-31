@@ -173,3 +173,17 @@ function searchInsert(nums, target) {
     }
   }
 }
+
+/*
+// Length of Last Word
+//
+// pseudocode:
+[x] trim the input string to remove whitespaces from both ends of the string
+[x] separate the given string by a space (' ')
+[x] take the last string and return the length of that string
+*/
+function lengthOfLastWord(s) {
+  s = s.trim();
+  const words = s.split(' ');
+  return words[words.length - 1].length;
+}
