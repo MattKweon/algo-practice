@@ -82,7 +82,7 @@ Open brackets must be closed by the same type of brackets.
 Open brackets must be closed in the correct order.
 Every close bracket has a corresponding open bracket of the same type.
 
-// Pseudocode:
+// pseudocode:
 [x] define a `pairs` map that has a the opening bracket as a key and the closing
    as the value
 [x] if length of string is odd return false
@@ -116,4 +116,89 @@ function isValid(s) {
     }
   }
   return stack.length === 0;
+}
+
+/*
+// Remove Duplicate from Sorted Array
+//
+// pseudocode:
+[x] create an output variable and assign a value of one
+[x] create a variable for the length of input array
+[x] loop through the input array and start the second position
+[x] if the value at index 'i' is the same as the previous number:
+   [x] remove the number from the input array
+   [x] push the number to the end of the array
+   [x] decrement index 'i'
+   [x] decrement the value of the input length by 1
+[x] if not increment the value of output and go to the next increment
+*/
+function removeDuplicates(nums) {
+  let output = 1;
+  let inputLen = nums.length;
+
+  for (let i = 1; i < inputLen; i++) {
+    if (nums[i] !== nums[i - 1]) {
+      output++;
+    } else {
+      nums.push(nums.splice(i, 1)[0]);
+      i--;
+      inputLen--;
+    }
+  }
+  return output;
+}
+
+/*
+// Search Insert Position
+//
+//pseudocode:
+[x] if the input array has the target value, return the index
+[x] if not lopp through the input array
+[x] check if the target value is less than or equal to the value at index 'i'
+[x] if its more go next
+[x] if its less return the value of index 'i'
+*/
+function searchInsert(nums, target) {
+  if (nums.indexOf(target) > 0) {
+    return nums.indexOf(target);
+  } else {
+    if (target > nums[nums.length - 1]) {
+      return nums.length;
+    } else {
+      for (let i = 0; i < nums.length; i++) {
+        if (nums[i] > target) {
+          return i;
+        }
+      }
+    }
+  }
+}
+
+/*
+// Length of Last Word
+//
+// pseudocode:
+[x] trim the input string to remove whitespaces from both ends of the string
+[x] separate the given string by a space (' ')
+[x] take the last string and return the length of that string
+*/
+function lengthOfLastWord(s) {
+  s = s.trim();
+  const words = s.split(' ');
+  return words[words.length - 1].length;
+}
+
+/*
+// Plus One
+//
+// pseudocode:
+[x] use the BigInt type
+[x] join the numbers in the array by using the join() method
+[x] wrap that in BigInt and add BigInt(1) to it
+[x] convert BigInt to string then use the split method to get it back in array
+   form
+*/
+function plusOne(digits) {
+  const output = (BigInt(digits.join('')) + BigInt(1)).toString().split('');
+  return output;
 }
