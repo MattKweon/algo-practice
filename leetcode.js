@@ -187,3 +187,18 @@ function lengthOfLastWord(s) {
   const words = s.split(' ');
   return words[words.length - 1].length;
 }
+
+/*
+// Plus One
+//
+// pseudocode:
+[x] use the BigInt type
+[x] join the numbers in the array by using the join() method
+[x] wrap that in BigInt and add BigInt(1) to it
+[x] convert BigInt to string then use the split method to get it back in array
+   form
+*/
+function plusOne(digits) {
+  const output = (BigInt(digits.join('')) + BigInt(1)).toString().split('');
+  return output;
+}
