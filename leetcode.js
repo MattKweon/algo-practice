@@ -83,15 +83,13 @@ Open brackets must be closed in the correct order.
 Every close bracket has a corresponding open bracket of the same type.
 
 // pseudocode:
-[x] define a `pairs` map that has a the opening bracket as a key and the closing
-   as the value
+[x] define a `pairs` map that has a the opening bracket as a key and the closing as the value
 [x] if length of string is odd return false
 [x] if first character is a closing tag return false
 [x] if the last bracket is opening return false
 [x] loop through the string:
    [x] if bracket is opening push it on top of the stack
-   [x] if bracket is closing, check to if the top stack is a matching opening
-      bracket:
+   [x] if bracket is closing, check to if the top stack is a matching opening bracket:
       [x] if no match is found return false
    [x] if stack is empty, the string is valid, return true
 */
@@ -195,8 +193,7 @@ function lengthOfLastWord(s) {
 [x] use the BigInt type
 [x] join the numbers in the array by using the join() method
 [x] wrap that in BigInt and add BigInt(1) to it
-[x] convert BigInt to string then use the split method to get it back in array
-   form
+[x] convert BigInt to string then use the split method to get it back in array form
 */
 function plusOne(digits) {
   const output = (BigInt(digits.join('')) + BigInt(1)).toString().split('');
@@ -229,4 +226,25 @@ function bestTeamScore(scores, ages) {
     maxScore = Math.max(maxScore, dp[i]);
   }
   return maxScore;
+}
+
+/*
+// Greatest Commmon Divisor of Strings
+//
+// pseudocode:
+[x] initialize an output variable with empty string
+[x] loop through the first input string
+[x] if the letter at index 'i' is the same for both strings and that letter already exists
+   in output add to output variable
+[x] if not, go next
+[x] return output
+*/
+function gcdOfStrings(str1, str2) {
+  let output = '';
+  for (let i = 0; i < str1.length; i++) {
+    if (str1[i] === str2[i] && !output.includes(str1[i])) {
+      output = output.concat(str1[i]);
+    }
+  }
+  return output;
 }
