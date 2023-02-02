@@ -290,3 +290,9 @@ function climbStairs(n) {
   }
   return arr[n - 1];
 }
+
+/*
+// Merge Sorted Array
+//
+// pseudocode:
+*/
