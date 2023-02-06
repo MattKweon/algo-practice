@@ -54,3 +54,52 @@ function twoSum(nums, target) {
     mp.set(nums[i], i);
   }
 }
+
+/*
+// 49. Group Anagrams
+//
+// pseudocode:
+[x] create a new map
+[x] loop through the input array using a for of loop
+[x] for each word at index, rearrange the word so that all the letters are in alphabetical order
+[x] if the word doesn't exist in the map place an empty array placeholder for that word
+[x] push the origial word value into the map at the correct key
+[x] return all values in the map object
+*/
+function groupAnagrams(strs) {
+  const map = {};
+  for (const str of strs) {
+    const s = str.split('').sort().join('');
+    if (!map[s]) map[s] = [];
+    map[s].push(str);
+  }
+  return Object.values(map);
+}
+
+/*
+// Top K Frequent Elements
+//
+// pseudocode:
+[x] create a new map
+[x] loop through the input array
+[x] if the integer at index doesn't exists in the map, add it to the map with a key value pair of
+   integer and 1
+[x] if it does exist, increment the value of the current key
+[x] sort the map keys based on its pair values from highest to lowest
+[x] slice the array from index 0 to index 'k'
+[x] return output
+*/
+function topKFrequent(nums, k) {
+  const m = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    if (!m.has(nums[i])) {
+      m.set(nums[i], 1);
+    } else {
+      m.set(nums[i], m.get(nums[i]) + 1);
+    }
+  }
+  const output = [...m.keys()].sort((a, b) => m.get(b) - m.get(a)).slice(0, k);
+  return output;
+}
+
+topKFrequent([3, 2, 2, 1, 1, 1], 2);
