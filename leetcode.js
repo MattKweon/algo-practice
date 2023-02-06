@@ -248,3 +248,51 @@ function gcdOfStrings(str1, str2) {
   }
   return output;
 }
+
+/*
+// Sqrt(x)
+//
+*/
+function mySqrt(x) {
+  for (let i = 0; i < x + 1; i++) {
+    if (i * i > x) return i - 1;
+  }
+}
+
+/*
+// CLimbing Stairs
+//
+// pseudocode:
+[] n = 1, just oneway -> 1
+[] n = 2, just two ways -> 1+1 or 2
+[] n = 3, if we choose:
+   [] one step -> two steps left
+   [] two steps -> one step left
+[] when we know either one or two steps is left, we know how many ways to go to the top
+[] so we can write:
+   [] one step -> two steps left Fn(2) = 2
+   [] two steps -> one step left Fn(1) = 1
+[] the answer of Fn(3) = Fn(2) + Fn(1) = 2 + 1 = 3
+[] n = 4:
+   [] same as above we only have two choices (one step or two steps) at first
+   [] one step -> three steps left Fn(3) = 3 (the answer we just got above)
+   [] two steps -> two steps left Fn(2) = 2
+   [] so we cn get the answer of Fn(4) = Fn(3) = Fn(2) = 3 + 2 = 5
+[] n as n:
+   [] one step -> n - 1 steps left Fn(n - 1)
+    [] two steps -> n - 2 steps left Fn(n - 2)
+    [] Fn(n) = Fn(n - 1) + Fn(n - 2)
+*/
+function climbStairs(n) {
+  const arr = [1, 2];
+  for (let i = 2; i < n; i++) {
+    arr[i] = arr[i - 1] + arr[i - 2];
+  }
+  return arr[n - 1];
+}
+
+/*
+// Merge Sorted Array
+//
+// pseudocode:
+*/
