@@ -77,7 +77,7 @@ function groupAnagrams(strs) {
 }
 
 /*
-// Top K Frequent Elements
+// 347. Top K Frequent Elements
 //
 // pseudocode:
 [x] create a new map
@@ -102,4 +102,31 @@ function topKFrequent(nums, k) {
   return output;
 }
 
-topKFrequent([3, 2, 2, 1, 1, 1], 2);
+/*
+// 238. Product of Array Except Self
+//
+// pseudocode:
+[] set up an empty array as our result
+[] initilaize a prefix tracker at 1
+[] loop through the input array
+[] for each position, the result array should equal the prefix tracker
+[] then, update the prefix tracker to be the product of itself multipled by the input value at the position
+[] initialize a suffix tracker at 1
+[] loop backwards through the array
+[] for each iteration, set the result array to be the product of itself multiplied by the suffix tracker
+[] then, update the suffix tracker to be the product of itself, multipled by the input value at that position
+*/
+function productExceptSelf(nums) {
+  const result = [];
+  let prefix = 1;
+  for (let i = 0; i < nums.length; i++) {
+    result[i] = prefix;
+    prefix *= nums[i];
+  }
+  let suffix = 1;
+  for (let i = nums.length - 1; i >= 0; i--) {
+    result[i] *= suffix;
+    suffix *= nums[i];
+  }
+  return result;
+}
