@@ -234,3 +234,25 @@ function isPalindrome(s) {
   const test = s.split('').reverse().join('');
   return s === test;
 }
+
+/*
+// 167. Two Sum II - Input Array is Sorted
+//
+// pseudocode:
+[x] create a new map
+[x] start a loop
+[x] take the target number and subtract by the first integer in the array
+[x] check to see if the difference exists in the map
+[x] if not add the number and the index to map
+[x] if so return the index on the current number and the index of the coresponding number in map
+*/
+function twoSumII(numbers, target) {
+  const m = new Map();
+  for (let i = 0; i < numbers.length; i++) {
+    const diff = target - numbers[i];
+    if (m.has(diff)) {
+      return [m.get(diff), i + 1];
+    }
+    m.set(numbers[i], i + 1);
+  }
+}
