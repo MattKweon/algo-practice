@@ -106,15 +106,15 @@ function topKFrequent(nums, k) {
 // 238. Product of Array Except Self
 //
 // pseudocode:
-[] set up an empty array as our result
-[] initilaize a prefix tracker at 1
-[] loop through the input array
-[] for each position, the result array should equal the prefix tracker
-[] then, update the prefix tracker to be the product of itself multipled by the input value at the position
-[] initialize a suffix tracker at 1
-[] loop backwards through the array
-[] for each iteration, set the result array to be the product of itself multiplied by the suffix tracker
-[] then, update the suffix tracker to be the product of itself, multipled by the input value at that position
+[x] set up an empty array as our result
+[x] initilaize a prefix tracker at 1
+[x] loop through the input array
+[x] for each position, the result array should equal the prefix tracker
+[x] then, update the prefix tracker to be the product of itself multipled by the input value at the position
+[x] initialize a suffix tracker at 1
+[x] loop backwards through the array
+[x] for each iteration, set the result array to be the product of itself multiplied by the suffix tracker
+[x] then, update the suffix tracker to be the product of itself, multipled by the input value at that position
 */
 function productExceptSelf(nums) {
   const result = [];
@@ -129,4 +129,53 @@ function productExceptSelf(nums) {
     suffix *= nums[i];
   }
   return result;
+}
+
+/*
+// 36. Valid Sudoku
+//
+// pseudocode:
+[x] we need to check three things:
+   [x] are there duplicates in each row? if yes, return false
+   [x] are there duplictes in each column? if yes, return false
+   [x] are there duplicates in each 3x3 box? if yes, return false
+[x] if everything passes, return true at the end
+[x] when dealing with checking duplicates, we use a hash set
+[x] create a loop to deal with the row
+[x] then create another nest loop to deal with columns
+[x] check to see if the first number in the first row is in the row hash set
+[x] if it is, then return false
+[x] if it isn't add it to the set
+[x] check if the number in the first column of the first row is in the set
+[x] if not add to the according set
+[x] if so return false
+[x] do this with the remaining numbers in the correct rows and columns
+*/
+function isValidSudoku(board) {
+  for (let i = 0; i < 9; i++) {
+    const row = new Set();
+    const col = new Set();
+    const box = new Set();
+
+    for (let j = 0; j < 9; j++) {
+      const _row = board[i][j];
+      const _col = board[j][i];
+      const _box = board[3 * Math.floor(i / 3) + Math.floor(j / 3)][3 * (i % 3) + (j % 3)];
+
+      if (_row !== '.') {
+        if (row.has(_row)) return false;
+        row.add(_row);
+      }
+      if (_col !== '.') {
+        if (col.has(_col)) return false;
+        col.add(_col);
+      }
+
+      if (_box !== '.') {
+        if (box.has(_box)) return false;
+        box.add(_box);
+      }
+    }
+  }
+  return true;
 }
