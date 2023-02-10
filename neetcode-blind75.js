@@ -179,3 +179,35 @@ function isValidSudoku(board) {
   }
   return true;
 }
+
+/*
+// 128. Longest Consecutive Sequence
+//
+// pseudocode:
+[x] add a special case if input array is empty, return 0
+[x] initialize a counter variable and set it as an empty array
+[x] initialize a counter variable that and assign it the value of 1
+[x] sort the integer array in ascending order
+[x] create a loop for the array starting at the second index
+[x] check to see that the value of the current index is one more than the previous integer:
+   [x] if it is, add one to the counter
+   [x] if the current integer is equal to the next integer, do nothing
+   [x] if not, add the current counter to the output and reset the counter back to 1
+[x] return the highest number in the output array
+*/
+function longestConsecutive(nums) {
+  if (nums.length === 0) return 0;
+  const output = [];
+  let counter = 1;
+  nums = nums.sort((a, b) => a - b);
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] - 1 === nums[i - 1]) {
+      counter++;
+    } else if (nums[i] !== nums[i - 1]) {
+      output.push(counter);
+      counter = 1;
+    }
+  }
+  output.push(counter);
+  return Math.max(...output);
+}
