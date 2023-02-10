@@ -2,6 +2,11 @@
 //
 // Blind 75 - neetcode
 //
+//
+
+//
+// Arrays and Hashing
+//
 
 /*
 // 217. Contains Duplicate
@@ -210,4 +215,22 @@ function longestConsecutive(nums) {
   }
   output.push(counter);
   return Math.max(...output);
+}
+
+//
+// Two Pointers
+//
+
+/*
+// 125. Valid Palindrome
+//
+// pseudocode:
+[x] remove all nonalphanumeric characters from the string and set all characters to lowercase
+[x] create a test variable that is the reverse in the given string
+[x] test if the two variables equal each other
+*/
+function isPalindrome(s) {
+  s = s.toLowerCase().replace(/[^0-9a-z]/gi, '');
+  const test = s.split('').reverse().join('');
+  return s === test;
 }
