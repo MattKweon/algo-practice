@@ -256,3 +256,57 @@ function twoSumII(numbers, target) {
     m.set(numbers[i], i + 1);
   }
 }
+
+function twoSumIIAltMethod(numbers, target) {
+  let start = 0;
+  let end = numbers.length - 1;
+  while (start <= end) {
+    if (numbers[start] + numbers[end] === target) return [start + 1, end + 1];
+    if (numbers[start] + numbers[end] > target) {
+      end--;
+    } else {
+      start++;
+    }
+  }
+}
+
+/*
+// 15. 3Sum
+//
+// pseudocode:
+[x] Approach: First, sort the array which then will be helpful to prevent duplicates.
+   After the array is sorted we need to find all possible solutins for each number - first for loop.
+   For each number additional two numbers has to be added in order to meet the requirements so we need
+   to iterate over the remaining numbers to find the sum - while loop.
+   Inside the while loop, a 2-sum problem is solved and a left pointer is shifted after each found
+   solution to prevent duplicates
+[x] sort for simpler detection of duplicates
+[x] find sum with two pointer method
+[x] shift pointer to a new value to prevent duplicates
+*/
+function threeSum(nums) {
+  const results = [];
+  nums.sort((a, b) => a - b);
+  for (let i = 0; i < nums.length; i++) {
+    if (i > 0 && nums[i - 1] === nums[i]) {
+      continue;
+    }
+    let left = i + 1;
+    let right = nums.length - 1;
+    while (left < right) {
+      const sum = nums[i] + nums[left] + nums[right];
+      if (sum === 0) {
+        results.push([nums[i], nums[left], nums[right]]);
+        left++;
+        while (nums[left] === nums[left - 1] && left < right) {
+          left++;
+        }
+      } else if (sum > 0) {
+        right--;
+      } else {
+        left++;
+      }
+    }
+  }
+  return results;
+}
