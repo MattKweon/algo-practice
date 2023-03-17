@@ -4,7 +4,7 @@
 //
 
 /*
-// Palindrome Number
+// 9. Palindrome Number
 //
 Given an integer x, return true if x is a palindrome,
 and false otherwise.
@@ -22,7 +22,7 @@ function palindromeNum(x) {
 }
 
 /*
-// Roman to Integer
+// 12. Roman to Integer
 //
 Given a roman numeral, convert it to an integer.
 */
@@ -54,7 +54,7 @@ function romanToInt(s) {
 }
 
 /*
-// Longest Common Prefix
+// 14. Longest Common Prefix
 //
 Write a function to find the longest common prefix string amongst
 an array of strings.
@@ -72,7 +72,7 @@ function longestCommonPrefix(strs) {
 }
 
 /*
-// Valid Parentheses
+// 20. Valid Parentheses
 //
 Given a string s containing just the characters '(', ')', '{',
 '}', '[' and ']', determine if the input string is valid.
@@ -117,7 +117,7 @@ function isValid(s) {
 }
 
 /*
-// Remove Duplicate from Sorted Array
+// 26. Remove Duplicate from Sorted Array
 //
 // pseudocode:
 [x] create an output variable and assign a value of one
@@ -147,7 +147,7 @@ function removeDuplicates(nums) {
 }
 
 /*
-// Search Insert Position
+// 35. Search Insert Position
 //
 //pseudocode:
 [x] if the input array has the target value, return the index
@@ -173,7 +173,7 @@ function searchInsert(nums, target) {
 }
 
 /*
-// Length of Last Word
+// 58. Length of Last Word
 //
 // pseudocode:
 [x] trim the input string to remove whitespaces from both ends of the string
@@ -187,7 +187,7 @@ function lengthOfLastWord(s) {
 }
 
 /*
-// Plus One
+// 66. Plus One
 //
 // pseudocode:
 [x] use the BigInt type
@@ -201,7 +201,7 @@ function plusOne(digits) {
 }
 
 /*
-// Best Team With No Conflicts
+// 1626. Best Team With No Conflicts
 //
 // pseudocode:
 [] create an array that contains the age/score pair of a player
@@ -229,7 +229,7 @@ function bestTeamScore(scores, ages) {
 }
 
 /*
-// Greatest Commmon Divisor of Strings
+// 1071. Greatest Commmon Divisor of Strings
 //
 // pseudocode:
 [x] initialize an output variable with empty string
@@ -250,7 +250,7 @@ function gcdOfStrings(str1, str2) {
 }
 
 /*
-// Sqrt(x)
+// 69. Sqrt(x)
 //
 */
 function mySqrt(x) {
@@ -260,7 +260,7 @@ function mySqrt(x) {
 }
 
 /*
-// CLimbing Stairs
+// 70. Climbing Stairs
 //
 // pseudocode:
 [] n = 1, just oneway -> 1
@@ -292,7 +292,22 @@ function climbStairs(n) {
 }
 
 /*
-// Merge Sorted Array
+// 258. Add Digits
+//
+// pseudocode:
+[] make use of digital root
+[] create test case if the input is NaN or less than 10
+[] if the remainder of the input divided by 9 is equal to 0, return 9
+[] else return the the remainder of the input divided by 9
+*/
+function addDigits(num) {
+  if (isNaN(num) || num === 0) return 0;
+  if (num < 10) return num;
+  return num % 9 === 0 ? 9 : num % 9;
+}
+
+/*
+// 88. Merge Sorted Array
 //
 // pseudocode:
 */
