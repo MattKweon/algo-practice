@@ -310,10 +310,3 @@ function threeSum(nums) {
   }
   return results;
 }
-
-/*
-// 11. Container with Most Water
-//
-// pseudocode:
-[]
-*/
