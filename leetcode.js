@@ -307,6 +307,25 @@ function addDigits(num) {
 }
 
 /*
+// 286. Missing Number
+//
+// pseudocode:
+[x] sort the given array of nums from least to greatest
+[x] if the first number isn't a zero, return zero
+[x] loop through the newly sorted array
+[x] check to see if the number at [i + 1] is equal to i + 1
+[x] if not, return i + 1
+[x] else, continue with the loop
+*/
+function missingNumber(nums) {
+  nums.sort((a, b) => a - b);
+  if (nums[0] !== 0) return 0;
+  for (let i = 0; i < nums.length + 1; i++) {
+    if (nums[i + 1] !== i + 1) return i + 1;
+  }
+}
+
+/*
 // 88. Merge Sorted Array
 //
 // pseudocode:
